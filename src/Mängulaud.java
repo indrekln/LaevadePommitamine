@@ -1,4 +1,5 @@
 
+
 public class Mängulaud {
 	static int veergudearv;
 	static int ridadearv;
