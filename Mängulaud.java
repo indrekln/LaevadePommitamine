@@ -1,24 +1,8 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-
 
 public class M‰ngulaud {
 	static int[] arvutiM‰ngulaud = new int[100]; //Arvuti m‰ngulaud, kus kıikide koordinaatide v‰‰rtus on 0.
-	static int[] m‰ngijaM‰ngulaud = new int[100]; // M‰ngija m‰nguv‰li, kus kıik v‰‰rtused 0.
+	static int[] m‰ngijaM‰ngulaud = new int[100]; // M‰ngija m‰nguv‰li, kus kıik v‰‰rtused 0. 
 	
-	public static void m‰ngulauaPrint() {  //Meetod esialgsete m‰ngulaudade massiivide v‰ljaprintimiseks
-		System.out.println(Arrays.toString(arvutiM‰ngulaud));
-		System.out.println(Arrays.toString(m‰ngijaM‰ngulaud));
-	} 
-	
-	public static int[] laevadePaigutusLauale (ArrayList<Integer> laevastik, int[] m‰ngulaud) {
-		for (int i=0; i<laevastik.size(); i++) {
-			int index = laevastik.get(i);
-			System.out.println(laevastik.get(i));
-			m‰ngulaud[index] = 1;
-		}
-		return m‰ngulaud;
-	}
 	
 	public static void n‰htavM‰ngulaud(int[] m‰ngulaud1, int[] m‰ngulaud2) { // Meetod n‰htava m‰ngulaua genereerimiseks: parameetriteks m‰ngulauad, milles v‰‰rtused 0 - t¸hi, 1 - laevaga, 2 - tulistatud,3 - pihtas
 		System.out.println("\tA R V U T I\t\t\tM ƒ N G I J A");   // M‰ngulaua pealkiri
