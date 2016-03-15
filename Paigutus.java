@@ -2,33 +2,26 @@ import java.util.ArrayList;
 
 public class Paigutus {
 
-	// Meres olevate laevade koordinaadid - kontrolliks, kas ruut on hõivatud
+	// Meres olevate laevade koordinaadid - kontrolliks, kas ruut on hÃµivatud
 	private ArrayList<Integer> laevadMerel = new ArrayList<>();
 	private ArrayList<Integer> merepiir = new ArrayList<>();
 
 	// Kontrollib, kas laeva jaoks on ruudud vabad
 	// Kui on vaba, tagastab TRUE; kui ei, tagastab FALSE
 	public boolean vabaMeri(ArrayList<Integer> laev) {
-		//System.out.println("vabaMeri test");
 		for (int i = 0; i < laev.size(); i++) {
 			if (merepiir.contains(laev.get(i)) == true || laevadMerel.contains(laev.get(i)) == true) {
-				//System.out.println("Hõivatud ruut: " + laev.get(i));
 				return false; 
 			}
 		}
 		return true;
 	}
 
-
-	public ArrayList<Integer> laevMerele(ArrayList<Integer> laev) {
-		//ArrayList<Integer> laevadMeres = new ArrayList<>();
-		laevadMerel.addAll(laev);
-		return null;
-	}
-
+	//MÃ¤Ã¤rab igale laevale merepiiri ja tagastab selle
+	//Osaliselt mÃ¤rgib merepiiriks ka ruute, kus paikneb laev - ei sega, kui on ainult mÃ¤ngulaua loomiseks
 	public ArrayList<Integer> merepiirLaevale(ArrayList<Integer> laev) {
 		for (int i = 0; i < laev.size(); i++) {
-			if (laev.get(i) > 10 && laev.get(i) < 90 && laev.get(i) % 10 != 0 && laev.get(i) != 9) { //laev ei ole mängulaua servas
+			if (laev.get(i) > 10 && laev.get(i) < 90 && laev.get(i) % 10 != 0 && laev.get(i) != 9) { //laev ei ole mÃ¤ngulaua servas
 				merepiir.add(laev.get(i) - 11);
 				merepiir.add(laev.get(i) - 10);
 				merepiir.add(laev.get(i) - 9);
@@ -49,7 +42,7 @@ public class Paigutus {
 				}*/
 			}				
 			if (laev.get(i) < 10) { //laev on esimesel real
-				if (laev.get(i) % 10 != 0 && laev.get(i) % 10 != 9){ //lisab laeva külgedele ja alla jäävad meretükid
+				if (laev.get(i) % 10 != 0 && laev.get(i) % 10 != 9){ //lisab laeva kÃ¼lgedele ja alla jÃ¤Ã¤vad meretÃ¼kid
 					merepiir.add(laev.get(i) - 1);
 					merepiir.add(laev.get(i) + 1);
 					merepiir.add(laev.get(i) + 9);
@@ -57,16 +50,16 @@ public class Paigutus {
 					merepiir.add(laev.get(i) + 11);
 				}
 				if (laev.get(i) % 10 == 0) { //laev on esimeses veerus
-					merepiir.add(laev.get(i) - 10); //lisab laeva kohale jääva meretüki  
-					merepiir.add(laev.get(i) - 9); //lisab laeva kohale paremale jääva meretüki  
+					merepiir.add(laev.get(i) - 10); //lisab laeva kohale jÃ¤Ã¤va meretÃ¼ki  
+					merepiir.add(laev.get(i) - 9); //lisab laeva kohale paremale jÃ¤Ã¤va meretÃ¼ki  
 				}
 				if (laev.get(i) % 10 == 9) { //laev on viimases veerus
-					merepiir.add(laev.get(i) - 10); //lisab laeva kohale jääva meretüki  
-					merepiir.add(laev.get(i) - 11); //lisab laeva kohale vasakule jääva meretüki  
+					merepiir.add(laev.get(i) - 10); //lisab laeva kohale jÃ¤Ã¤va meretÃ¼ki  
+					merepiir.add(laev.get(i) - 11); //lisab laeva kohale vasakule jÃ¤Ã¤va meretÃ¼ki  
 				}
 			}
 			if (laev.get(i) > 89) { //laev on viimasel real
-				if (laev.get(i) % 10 != 0 && laev.get(i) % 10 != 9){ //lisab laevakülgedele ja kohale jäävad meretükid
+				if (laev.get(i) % 10 != 0 && laev.get(i) % 10 != 9){ //lisab laevakÃ¼lgedele ja kohale jÃ¤Ã¤vad meretÃ¼kid
 					merepiir.add(laev.get(i) - 11);
 					merepiir.add(laev.get(i) - 10);
 					merepiir.add(laev.get(i) - 9);
@@ -76,12 +69,12 @@ public class Paigutus {
 				if (laev.get(i) % 10 == 0) { //laev on esimeses veerus
 					merepiir.add(laev.get(i) - 10);
 					merepiir.add(laev.get(i) - 9);
-					merepiir.add(laev.get(i) + 1); //lisab laevast paremale jääva meretüki  
+					merepiir.add(laev.get(i) + 1); //lisab laevast paremale jÃ¤Ã¤va meretÃ¼ki  
 				}
 				if (laev.get(i) % 10 == 9) { //laev on viimases veerus
 					merepiir.add(laev.get(i) - 11);
 					merepiir.add(laev.get(i) - 10);
-					merepiir.add(laev.get(i) - 1); //lisab laevast vasakule jääva meretüki
+					merepiir.add(laev.get(i) - 1); //lisab laevast vasakule jÃ¤Ã¤va meretÃ¼ki
 				}
 			}
 		}
@@ -93,7 +86,7 @@ public class Paigutus {
 		int laevaVeerg;
 		int laevaRida;
 
-		// Leiame laevale võimaliku alguskoordinaadi, väldime üle lauaserva minemist
+		// Leiame laevale vÃµimaliku alguskoordinaadi, vÃ¤ldime Ã¼le lauaserva minemist
 		if (vertikaalne){
 			laevaVeerg = (int)Math.round(Math.random() * (9.1));
 			laevaRida = (int)Math.round(Math.random() * (9.1 - pikkus));
@@ -108,10 +101,8 @@ public class Paigutus {
 		kontroll.add(laevaKoordinaat);
 
 		if (vabaMeri(kontroll) == false){
-			//System.out.println("Uus alguskoordinaat, sest: " + kontroll);
 			algusKoordinaat(vertikaalne, pikkus);
 		}
-		//System.out.println("Laevad Meres: " + laevadMeres);
 		return laevaKoordinaat;
 	}
 
@@ -127,17 +118,17 @@ public class Paigutus {
 				laev.add(XY + 1 * i);
 			}
 		}
-		//System.out.println(laev);
 		if (vabaMeri(laev) == false) {
-			// System.out.println("Meri kinni, sest: " + laev);
 			looLaevad(vertikaalne, pikkus);
 		}
 		else {
-			laevMerele(laev);
+			laevadMerel.addAll(laev);
 			merepiirLaevale(laev);
 		}
 		return laev;
 	}
+
+	//
 	public ArrayList<Integer> laevastik() {
 		int n = 1;
 		for (int i = 4; i > 0; i--){
@@ -153,56 +144,12 @@ public class Paigutus {
 		return laevadMerel;
 	}
 
-
 	public ArrayList<Integer> getMerepiir() {
 		return merepiir;
 	}
-
 
 	@Override
 	public String toString() {
 		return "Paigutus [laevadMerel=" + laevadMerel + ", merepiir=" + merepiir + "]";
 	}
-	
-
-/*
-	public static void main(String[] args) {
-	    System.out.println(laevadMerel);
-		
-		// Loome 100 ruuduga mängulaua, mille vaikeväärtused on 0
-		int[] mängulaud = new int[100];
-		
-
-		// Laevade arv ja pikkus: 4x1, 3x2, 2x3, 1x4
-//		int n = 1;
-//		for (int i = 4; i > 0; i--){
-//			for (int j = 0; j < n; j++) {
-//				looLaevad(Math.random() < 0.49, i); // Laeva suund: boolean vertikaalne
-//			}
-//			n++;
-//		}
-		System.out.println("Laevastik: " + laevastik());
-		//System.out.println("Laevu meres: " + laevadMeres.size());
-		System.out.println("Laevad meres: " + laevadMerel);
-		
-		
-		
-		
-		//Lisab laevad mängulauale
-		for (int i = 0; i < laevadMerel.size(); i++) {
-			mängulaud[laevadMerel.get(i)]++;
-		}
-		
-		//Joonistab mängulaua (testimiseks)
-		int m = 0;
-		for (int i = 0; i < 10; i++) {
-			for (int j = 0; j < 10; j++){
-				System.out.print(mängulaud[m] + " ");
-				m++;
-			}
-			System.out.println();
-		}
-		
-	}*/
-	
 }
