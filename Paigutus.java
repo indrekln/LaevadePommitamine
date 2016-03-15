@@ -3,12 +3,12 @@ import java.util.ArrayList;
 public class Paigutus {
 
 	// Meres olevate laevade koordinaadid - kontrolliks, kas ruut on hıivatud
-	static ArrayList<Integer> laevadMerel = new ArrayList<>();
-	static ArrayList<Integer> merepiir = new ArrayList<>();
+	private ArrayList<Integer> laevadMerel = new ArrayList<>();
+	private ArrayList<Integer> merepiir = new ArrayList<>();
 
 	// Kontrollib, kas laeva jaoks on ruudud vabad
 	// Kui on vaba, tagastab TRUE; kui ei, tagastab FALSE
-	static boolean vabaMeri(ArrayList<Integer> laev) {
+	public boolean vabaMeri(ArrayList<Integer> laev) {
 		//System.out.println("vabaMeri test");
 		for (int i = 0; i < laev.size(); i++) {
 			if (merepiir.contains(laev.get(i)) == true || laevadMerel.contains(laev.get(i)) == true) {
@@ -20,13 +20,13 @@ public class Paigutus {
 	}
 
 
-	static ArrayList<Integer> laevMerele(ArrayList<Integer> laev) {
+	public ArrayList<Integer> laevMerele(ArrayList<Integer> laev) {
 		//ArrayList<Integer> laevadMeres = new ArrayList<>();
 		laevadMerel.addAll(laev);
 		return null;
 	}
 
-	static ArrayList<Integer> merepiirLaevale(ArrayList<Integer> laev) {
+	public ArrayList<Integer> merepiirLaevale(ArrayList<Integer> laev) {
 		for (int i = 0; i < laev.size(); i++) {
 			if (laev.get(i) > 10 && laev.get(i) < 90 && laev.get(i) % 10 != 0 && laev.get(i) != 9) { //laev ei ole m‰ngulaua servas
 				merepiir.add(laev.get(i) - 11);
@@ -89,7 +89,7 @@ public class Paigutus {
 	}
 
 	//Tagastab laeva alguskoordinaadi
-	static int algusKoordinaat(boolean vertikaalne, int pikkus) {
+	public int algusKoordinaat(boolean vertikaalne, int pikkus) {
 		int laevaVeerg;
 		int laevaRida;
 
@@ -116,7 +116,7 @@ public class Paigutus {
 	}
 
 	// Loob laeva vastavalt antud pikkusele ja suunale
-	static ArrayList<Integer> looLaevad(boolean vertikaalne, int pikkus) {
+	public ArrayList<Integer> looLaevad(boolean vertikaalne, int pikkus) {
 		ArrayList<Integer> laev = new ArrayList<>();
 		int XY = algusKoordinaat(vertikaalne, pikkus);
 		for (int i = 0; i < pikkus; i++) {
@@ -138,7 +138,7 @@ public class Paigutus {
 		}
 		return laev;
 	}
-	public static ArrayList<Integer> laevastik() {
+	public ArrayList<Integer> laevastik() {
 		int n = 1;
 		for (int i = 4; i > 0; i--){
 			for (int j = 0; j < n; j++) {
@@ -149,10 +149,29 @@ public class Paigutus {
 		return laevadMerel;
 	}
 	
+	public ArrayList<Integer> getLaevadMerel() {
+		return laevadMerel;
+	}
+
+
+	public ArrayList<Integer> getMerepiir() {
+		return merepiir;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Paigutus [laevadMerel=" + laevadMerel + ", merepiir=" + merepiir + "]";
+	}
+	
+
+/*
 	public static void main(String[] args) {
+	    System.out.println(laevadMerel);
 		
 		// Loome 100 ruuduga m‰ngulaua, mille vaikev‰‰rtused on 0
 		int[] m‰ngulaud = new int[100];
+		
 
 		// Laevade arv ja pikkus: 4x1, 3x2, 2x3, 1x4
 //		int n = 1;
@@ -184,6 +203,6 @@ public class Paigutus {
 			System.out.println();
 		}
 		
-	}
+	}*/
 	
 }
