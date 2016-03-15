@@ -7,6 +7,7 @@ public class Mäng {
 	static Paigutus laevadMerel2 = new Paigutus(); // mängija laevade koordinaadid
 
 	public static void main(String[] args) {
+		
 		System.out.println("Mäng algab ...");
 		System.out.println();
 		
@@ -26,7 +27,7 @@ public class Mäng {
 			Mängulaud.mängijaMängulaud[index2] ++;
 		}
 		//System.out.println(Arrays.toString(Mängulaud.mängijaMängulaud));  // Mängija mängulaua massiiv laevadega
-		Mängulaud.nähtavMängulaud(Mängulaud.arvutiMängulaud, Mängulaud.mängijaMängulaud);  //Mängulaua algseisu kuvamine (mängija väljal laevad nähtavad, arvuti omal varjatud)
+		Mängulaud.nähtavMängulaud();  //Mängulaua algseisu kuvamine (mängija väljal laevad nähtavad, arvuti omal varjatud)
 		
 		//Mängijalt küsitakse infot tulistatava punkti kohta kujul nt "A7". Järgnev tegevus peaks käima mingi tsüklina, kuni mäng läbi (laevad põhjas vm).
 		Scanner scan = new Scanner(System.in);
@@ -46,7 +47,7 @@ public class Mäng {
 		Mängulaud.arvutiMängulaud[10]+=2;
 		scan.close();
 		System.out.println();
-		Mängulaud.nähtavMängulaud(Mängulaud.arvutiMängulaud, Mängulaud.mängijaMängulaud);
+		Mängulaud.nähtavMängulaud();
 		
 		//Siia peaks tulema ka see, et arvuti pommitab mingi süsteemi alusel mingit mängja mängulaua punkti ...
 		//Tsükli Lõpp

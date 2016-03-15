@@ -2,9 +2,9 @@
 public class Mängulaud {
 	static int[] arvutiMängulaud = new int[100]; //Arvuti mängulaud, kus kõikide koordinaatide väärtus on 0.
 	static int[] mängijaMängulaud = new int[100]; // Mängija mänguväli, kus kõik väärtused 0. 
-	
-	
-	public static void nähtavMängulaud(int[] mängulaud1, int[] mängulaud2) { // Meetod nähtava mängulaua genereerimiseks: parameetriteks mängulauad, milles väärtused 0 - tühi, 1 - laevaga, 2 - tulistatud,3 - pihtas
+
+
+	public static void nähtavMängulaud() { // Meetod nähtava mängulaua genereerimiseks: parameetriteks mängulauad, milles väärtused 0 - tühi, 1 - laevaga, 2 - tulistatud,3 - pihtas
 		System.out.println("\tA R V U T I\t\t\tM Ä N G I J A");   // Mängulaua pealkiri
 		System.out.println();
 		System.out.println("    A B C D E F G H I J  "+"\t"+"    A B C D E F G H I J  ");
