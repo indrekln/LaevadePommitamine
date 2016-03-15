@@ -16,7 +16,7 @@ public class Mäng {
 			int index1 = a.get(i);
 			Mängulaud.arvutiMängulaud[index1] ++;
 		}
-		System.out.println(Arrays.toString(Mängulaud.arvutiMängulaud)); //arvuti mängulaua massiiv laevadega
+		//System.out.println(Arrays.toString(Mängulaud.arvutiMängulaud)); //arvuti mängulaua massiiv laevadega
 		//Mängulaud.nähtavMängulaud(Mängulaud.arvutiMängulaud, Mängulaud.mängijaMängulaud); // arvuti mängulauale on lisatud laevad (mida ei näe)
 		
 		// Laevade paigutamine mängija mängulauale kasutades klassi Paigutus meetodeid)
