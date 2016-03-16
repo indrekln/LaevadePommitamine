@@ -33,7 +33,9 @@ public class ArvutiKoordinaat {
 						if(mängulaud[arvutipommiKoordinaat]<2 && arvutipommiKoordinaat>=0 && arvutipommiKoordinaat<100) {
 							break;
 						} else {
-							arvutiPommiKoordinaadid(mängulaud);
+							System.out.println("test");
+							arvutipommiKoordinaat = -1;
+							break;
 						}
 					} 
 				}

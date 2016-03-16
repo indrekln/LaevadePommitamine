@@ -63,4 +63,18 @@ public class Mängulaud {
 		}
 		System.out.println("    A B C D E F G H I J  "+"\t"+"    A B C D E F G H I J  ");
 	}
+	
+	public static int pihtasaanudKoordinaadid(int[] mängulaud) { // meetod pihtapommitatud kooridnaatide arvu leidmiseks
+		int arv = 0;   // pihtasaanud koordinaatide arv
+		for (int väärtus: mängulaud) {
+			if (väärtus==3) {
+				arv++;
+			}
+		}
+		return arv;
+	}
+	
+	public static int getPihtasaanudKoordinaadid(int[] mängulaud) {
+		return pihtasaanudKoordinaadid(mängulaud);
+	}
 }
