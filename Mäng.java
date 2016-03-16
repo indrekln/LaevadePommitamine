@@ -76,7 +76,7 @@ public class Mäng {
 						if (Mängulaud.mängijaMängulaud[p2]==3) {  // võtab järgmise käigu ajaks teadmiseks, kui sai laevale pihta
 							pihtasKoordinaat = p2;
 						}
-					}
+					} 
 				}
 				Mängulaud.nähtavMängulaud();
 				System.out.println();
