@@ -37,6 +37,7 @@ public class Mäng {
 		for(int t=0; t<100; t++) {
 			
 			// Mängija pommitab
+			System.out.println();
 			int p1 = KüsiKoordinaat.getKoordinaadid(); //kasutaja sisestab pommitamise asukoha
 			if (Mängulaud.arvutiMängulaud[p1]<2) {
 				Mängulaud.arvutiMängulaud[p1]+=2;
@@ -49,7 +50,7 @@ public class Mäng {
 			
 			// Arvuti pommitab
 			if (pihtasKoordinaat < 0) {  // Kui arvuti pole veel laeva tabanud
-				int p2 = ArvutiPommid.getArvutiPommiKoordinaadid(Mängulaud.mängijaMängulaud); //Arvuti pommitab juhuslikku koordinaati
+				int p2 = ArvutiKoordinaat.getArvutiPommiKoordinaadid(Mängulaud.mängijaMängulaud); //Arvuti pommitab juhuslikku koordinaati
 				if (p2 > 0) {		 //õnnestub leida juhuslikult sobiv koht
 					Mängulaud.mängijaMängulaud[p2]+=2;
 					if (Mängulaud.mängijaMängulaud[p2]==3) {  // võtab järgmise käigu ajaks teadmiseks, kui sai laevale pihta
@@ -57,10 +58,10 @@ public class Mäng {
 					}
 				}
 			} else {  //Arvuti pommitab pihta eelmise käigus pihta saanud koordinaadi ümbrust (4 koordinaati)
-				int p2 = ArvutiPommid.getArvutiPommiKoordinaadid(Mängulaud.mängijaMängulaud, pihtasKoordinaat);
+				int p2 = ArvutiKoordinaat.getArvutiPommiKoordinaadid(Mängulaud.mängijaMängulaud, pihtasKoordinaat);
 				if (p2 < 0) {  // ei leia sobivad pommitamise kohti ümbrusest
 					pihtasKoordinaat = -1;
-					p2 = ArvutiPommid.getArvutiPommiKoordinaadid(Mängulaud.mängijaMängulaud); //Arvuti pommitab juhuslikku koordinaati
+					p2 = ArvutiKoordinaat.getArvutiPommiKoordinaadid(Mängulaud.mängijaMängulaud); //Arvuti pommitab juhuslikku koordinaati
 					if (p2 > 0) {		 //õnnestub leida juhuslikult sobiv koht
 						Mängulaud.mängijaMängulaud[p2]+=2;
 						if (Mängulaud.mängijaMängulaud[p2]==3) {  // võtab järgmise käigu ajaks teadmiseks, kui sai laevale pihta
