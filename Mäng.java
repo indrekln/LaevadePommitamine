@@ -58,8 +58,15 @@ public class Mäng {
 				}
 			} else {  //Arvuti pommitab pihta eelmise käigus pihta saanud koordinaadi ümbrust (4 koordinaati)
 				int p2 = ArvutiPommid.getArvutiPommiKoordinaadid(Mängulaud.mängijaMängulaud, pihtasKoordinaat);
-				if (p2 < 0) {  // ei leia sobivad pommitamise kohta ümbrusest enam
+				if (p2 < 0) {  // ei leia sobivad pommitamise kohti ümbrusest
+					pihtasKoordinaat = -1;
 					p2 = ArvutiPommid.getArvutiPommiKoordinaadid(Mängulaud.mängijaMängulaud); //Arvuti pommitab juhuslikku koordinaati
+					if (p2 > 0) {		 //õnnestub leida juhuslikult sobiv koht
+						Mängulaud.mängijaMängulaud[p2]+=2;
+						if (Mängulaud.mängijaMängulaud[p2]==3) {  // võtab järgmise käigu ajaks teadmiseks, kui sai laevale pihta
+						pihtasKoordinaat = p2;
+						}
+					}
 				} else {
 					Mängulaud.mängijaMängulaud[p2]+=2;
 					if (Mängulaud.mängijaMängulaud[p2]==3) {  // võtab järgmise käigu ajaks teadmiseks, kui sai laevale pihta
