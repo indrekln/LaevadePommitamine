@@ -1,8 +1,9 @@
+
 import java.util.ArrayList;
 
 public class Paigutus {
 
-	// Meres olevate laevade koordinaadid - kontrolliks, kas ruut on hõivatud
+	// Meres olevate laevade koordinaadid - kontrolliks, kas ruut on h�ivatud
 	private ArrayList<Integer> laevadMerel = new ArrayList<>();
 	private ArrayList<Integer> merepiir = new ArrayList<>();
 
@@ -17,7 +18,7 @@ public class Paigutus {
 		return true;
 	}
 
-	//Määrab igale laevale merepiiri ja tagastab selle
+	//M��rab igale laevale merepiiri ja tagastab selle
 	public ArrayList<Integer> merepiirLaevale(ArrayList<Integer> laev) {
 		ArrayList<Integer> puhver = new ArrayList<>();
 		for (int i = 0; i < laev.size(); i++) {
@@ -43,7 +44,7 @@ public class Paigutus {
 			}
 			if (laev.get(i) > 89) { //laev on viimasel real
 				if (laev.get(i) % 10 != 0 && laev.get(i) % 10 != 9){ //laev pole esimeses ega viimases veerus 
-					//lisab laevakülgedele ja kohale jäävad meretükid
+					//lisab laevak�lgedele ja kohale jäävad meretükid
 					puhver.add(laev.get(i) - 11);
 					puhver.add(laev.get(i) - 10);
 					puhver.add(laev.get(i) - 9);
