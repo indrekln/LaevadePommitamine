@@ -18,28 +18,31 @@ public class ArvutiKoordinaat {
 		int arvutipommiKoordinaat = -1;  // väärtus, mis jääb koordinaadiks, kui sobivat kohta ei leita
 		while (true) {
 			arvutipommiKoordinaat = eelnevKoordinaat-1;
-			if (mängulaud[arvutipommiKoordinaat]<2 && arvutipommiKoordinaat>=0 && arvutipommiKoordinaat<100) {
-				break;
-			} else {
-				arvutipommiKoordinaat = eelnevKoordinaat+1;
-				if (mängulaud[arvutipommiKoordinaat]<2 && arvutipommiKoordinaat>=0 && arvutipommiKoordinaat<100) {
+			if (arvutipommiKoordinaat>=0 && arvutipommiKoordinaat<100) {
+				if (mängulaud[arvutipommiKoordinaat]<2) {
 					break;
-				} else {
-					arvutipommiKoordinaat = eelnevKoordinaat-10;
-					if(mängulaud[arvutipommiKoordinaat]<2 && arvutipommiKoordinaat>=0 && arvutipommiKoordinaat<100) {
-						break;
-					} else {
-						arvutipommiKoordinaat = eelnevKoordinaat+10;
-						if(mängulaud[arvutipommiKoordinaat]<2 && arvutipommiKoordinaat>=0 && arvutipommiKoordinaat<100) {
-							break;
-						} else {
-							System.out.println("test");
-							arvutipommiKoordinaat = -1;
-							break;
-						}
-					} 
+				}
+			} 
+			arvutipommiKoordinaat = eelnevKoordinaat+1;
+			if (arvutipommiKoordinaat>=0 && arvutipommiKoordinaat<100) {
+				if (mängulaud[arvutipommiKoordinaat]<2) {
+					break;
+				}
+			} 
+			arvutipommiKoordinaat = eelnevKoordinaat-10;
+			if(arvutipommiKoordinaat>=0 && arvutipommiKoordinaat<100) {
+				if (mängulaud[arvutipommiKoordinaat]<2) {
+					break;
 				}
 			}
+			arvutipommiKoordinaat = eelnevKoordinaat+10;
+			if(arvutipommiKoordinaat>=0 && arvutipommiKoordinaat<100) {
+				if (mängulaud[arvutipommiKoordinaat]<2) {
+					break;
+				}
+			}
+			arvutipommiKoordinaat = -1;
+			break;
 		}
 		return arvutipommiKoordinaat;
 	}
