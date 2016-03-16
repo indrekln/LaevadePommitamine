@@ -18,67 +18,78 @@ public class Paigutus {
 	}
 
 	//Määrab igale laevale merepiiri ja tagastab selle
-	//Osaliselt märgib merepiiriks ka ruute, kus paikneb laev - ei sega, kui on ainult mängulaua loomiseks
 	public ArrayList<Integer> merepiirLaevale(ArrayList<Integer> laev) {
+		ArrayList<Integer> puhver = new ArrayList<>();
 		for (int i = 0; i < laev.size(); i++) {
-			if (laev.get(i) > 10 && laev.get(i) < 90 && laev.get(i) % 10 != 0 && laev.get(i) != 9) { //laev ei ole mängulaua servas
-				merepiir.add(laev.get(i) - 11);
-				merepiir.add(laev.get(i) - 10);
-				merepiir.add(laev.get(i) - 9);
-				merepiir.add(laev.get(i) - 1);
-				merepiir.add(laev.get(i) + 1);
-				merepiir.add(laev.get(i) + 11);
-				merepiir.add(laev.get(i) + 10);
-				merepiir.add(laev.get(i) + 9);
-				/*if (i == 0) {
-					merepiir.add(laev.get(i) - 11);
-					merepiir.add(laev.get(i) - 10);
-					merepiir.add(laev.get(i) - 9);
-				}
-				if (i + 1 == laev.size()) {
-					merepiir.add(laev.get(i) + 11);
-					merepiir.add(laev.get(i) + 10);
-					merepiir.add(laev.get(i) + 9);
-				}*/
-			}				
 			if (laev.get(i) < 10) { //laev on esimesel real
-				if (laev.get(i) % 10 != 0 && laev.get(i) % 10 != 9){ //lisab laeva külgedele ja alla jäävad meretükid
-					merepiir.add(laev.get(i) - 1);
-					merepiir.add(laev.get(i) + 1);
-					merepiir.add(laev.get(i) + 9);
-					merepiir.add(laev.get(i) + 10);
-					merepiir.add(laev.get(i) + 11);
+				if (laev.get(i) % 10 != 0 && laev.get(i) % 10 != 9){ //laev pole esimeses ega viimases veerus
+					//lisab laeva külgedele ja alla jäävad meretükid
+					puhver.add(laev.get(i) - 1);
+					puhver.add(laev.get(i) + 1);
+					puhver.add(laev.get(i) + 9);
+					puhver.add(laev.get(i) + 10);
+					puhver.add(laev.get(i) + 11);
 				}
-				if (laev.get(i) % 10 == 0) { //laev on esimeses veerus
-					merepiir.add(laev.get(i) - 10); //lisab laeva kohale jääva meretüki  
-					merepiir.add(laev.get(i) - 9); //lisab laeva kohale paremale jääva meretüki  
+				if (laev.get(i) % 10 == 0) { //laev on esimesel real ja esimeses veerus
+					puhver.add(laev.get(i) + 1);
+					puhver.add(laev.get(i) + 10);
+					puhver.add(laev.get(i) + 11);
 				}
-				if (laev.get(i) % 10 == 9) { //laev on viimases veerus
-					merepiir.add(laev.get(i) - 10); //lisab laeva kohale jääva meretüki  
-					merepiir.add(laev.get(i) - 11); //lisab laeva kohale vasakule jääva meretüki  
+				if (laev.get(i) % 10 == 9) { //laev on esimesel real ja viimases veerus
+					puhver.add(laev.get(i) - 1);  
+					puhver.add(laev.get(i) + 9);
+					puhver.add(laev.get(i) + 10);
 				}
 			}
 			if (laev.get(i) > 89) { //laev on viimasel real
-				if (laev.get(i) % 10 != 0 && laev.get(i) % 10 != 9){ //lisab laevakülgedele ja kohale jäävad meretükid
-					merepiir.add(laev.get(i) - 11);
-					merepiir.add(laev.get(i) - 10);
-					merepiir.add(laev.get(i) - 9);
-					merepiir.add(laev.get(i) - 1);
-					merepiir.add(laev.get(i) + 1);
+				if (laev.get(i) % 10 != 0 && laev.get(i) % 10 != 9){ //laev pole esimeses ega viimases veerus 
+					//lisab laevakülgedele ja kohale jäävad meretükid
+					puhver.add(laev.get(i) - 11);
+					puhver.add(laev.get(i) - 10);
+					puhver.add(laev.get(i) - 9);
+					puhver.add(laev.get(i) - 1);
+					puhver.add(laev.get(i) + 1);
 				}
-				if (laev.get(i) % 10 == 0) { //laev on esimeses veerus
-					merepiir.add(laev.get(i) - 10);
-					merepiir.add(laev.get(i) - 9);
-					merepiir.add(laev.get(i) + 1); //lisab laevast paremale jääva meretüki  
+				if (laev.get(i) % 10 == 0) { //laev on viimasel real ja esimeses veerus
+					puhver.add(laev.get(i) - 10);
+					puhver.add(laev.get(i) - 9);
+					puhver.add(laev.get(i) + 1);  
 				}
-				if (laev.get(i) % 10 == 9) { //laev on viimases veerus
-					merepiir.add(laev.get(i) - 11);
-					merepiir.add(laev.get(i) - 10);
-					merepiir.add(laev.get(i) - 1); //lisab laevast vasakule jääva meretüki
+				if (laev.get(i) % 10 == 9) { //laev on viimasel real ja viimases veerus
+					puhver.add(laev.get(i) - 11);
+					puhver.add(laev.get(i) - 10);
+					puhver.add(laev.get(i) - 1);
 				}
 			}
+			if (laev.get(i) % 10 == 0 && laev.get(i) > 10 && laev.get(i) < 90) { //laev on esimeses veerus
+				puhver.add(laev.get(i) - 10);
+				puhver.add(laev.get(i) - 9);
+				puhver.add(laev.get(i) + 1);
+				puhver.add(laev.get(i) + 10);
+				puhver.add(laev.get(i) + 11);
+			}
+			if (laev.get(i) % 10 == 9 && laev.get(i) > 10 && laev.get(i) < 90) { //laev on viimases veerus
+				puhver.add(laev.get(i) - 11);
+				puhver.add(laev.get(i) - 10);
+				puhver.add(laev.get(i) - 1);
+				puhver.add(laev.get(i) + 9);
+				puhver.add(laev.get(i) + 10);
+			}
+			if (laev.get(i) > 10 && laev.get(i) < 90 && laev.get(i) % 10 != 0 && laev.get(i) != 9) { //laev ei ole mängulaua servas
+				puhver.add(laev.get(i) - 11);
+				puhver.add(laev.get(i) - 10);
+				puhver.add(laev.get(i) - 9);
+				puhver.add(laev.get(i) - 1);
+				puhver.add(laev.get(i) + 1);
+				puhver.add(laev.get(i) + 11);
+				puhver.add(laev.get(i) + 10);
+				puhver.add(laev.get(i) + 9);
+			}
 		}
-		return null;
+		for (int i = 0; i < laev.size(); i++) {
+			puhver.remove(laev.get(i));
+		}
+		return puhver;
 	}
 
 	//Tagastab laeva alguskoordinaadi
@@ -123,7 +134,7 @@ public class Paigutus {
 		}
 		else {
 			laevadMerel.addAll(laev);
-			merepiirLaevale(laev);
+			merepiir.addAll(merepiirLaevale(laev));
 		}
 		return laev;
 	}
