@@ -2,20 +2,12 @@
 
 public class ArvutiKoordinaat {
 	public static int arvutiPommiKoordinaadid (int[] mängulaud) { //Kui arvuti pole veel laevale pihta saanud, valib pommitamise asukoha juhuslikult
-		int arvutipommiKoordinaat = -1;
-		while (true) {
-			arvutipommiKoordinaat = (int) Math.round(Math.random()*99); 
-			if (Mängulaud.mängijaMängulaud[arvutipommiKoordinaat]<2) { //arvuti leiab pommi asukoha, kuhu pole veel tulistatud
-				break;
-			} else {
-				arvutipommiKoordinaat = -1;
-			}
-		}
+		int arvutipommiKoordinaat = Mäng.mängijaPommitamata.get((int) Math.round(Math.random()*Mäng.mängijaPommitamataHulk));
 		return arvutipommiKoordinaat;
 	} 
 
 	public static int arvutiPommiKoordinaadid (int[] mängulaud, int eelnevKoordinaat) { // Kui arvuti on laevale pihta saanud, otsib järgneva 4 käigu ajal lähedusest (4 suunas) 	
-		int arvutipommiKoordinaat = -1;  // väärtus, mis jääb koordinaadiks, kui sobivat kohta ei leita
+		int arvutipommiKoordinaat = Mäng.mängijaPommitamata.get((int) Math.round(Math.random()*Mäng.mängijaPommitamataHulk));
 		while (true) {
 			arvutipommiKoordinaat = eelnevKoordinaat-1;
 			if (arvutipommiKoordinaat>=0 && arvutipommiKoordinaat<100) {
@@ -41,7 +33,8 @@ public class ArvutiKoordinaat {
 					break;
 				}
 			}
-			arvutipommiKoordinaat = -1;
+			arvutipommiKoordinaat = Mäng.mängijaPommitamata.get((int) Math.round(Math.random()*Mäng.mängijaPommitamataHulk));
+			System.out.println("Täiega feil");
 			break;
 		}
 		return arvutipommiKoordinaat;

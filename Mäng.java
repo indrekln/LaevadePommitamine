@@ -1,16 +1,30 @@
-
-
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
 
 public class Mäng {
 	static Paigutus laevadMerel1 = new Paigutus(); // arvuti laevade koordinaadid
 	static Paigutus laevadMerel2 = new Paigutus(); // mängija laevade koordinaadid
 
+	//Peame arvuti jaoks arvet mängija mängulaual pommitamata ruutudest 
+	public static ArrayList<Integer> mängijaPommitamata = new ArrayList<>();
+
+	//TrimToSize() ei toimi ArrayListi puhul miskipärast :(
+	public static int mängijaPommitamataHulk = 100;
+
+	public static ArrayList<Integer> arvutiPihtasLaev = new ArrayList<>();
+	public static ArrayList<Integer> mängijaPihtasLaev = new ArrayList<>();
+	
 	public static void main(String[] args) {
 		
-		System.out.println("Mäng algab ...");
+		for (int i = 0; i < 100; i++){
+			mängijaPommitamata.add(i);
+		}
+		
+		System.out.println("\t\t -= LAEVADE POMMITAMINE =-");
+		System.out.println();
+		System.out.println("Legend:\t ~ - pommitamata ala");
+		System.out.println("\t * - pommitatud ala");
+		System.out.println("\t L - laev (arvuti mänguväljakul varjatud)");
+		System.out.println("\t X - pommitabamusega laev või laevaosa");
 		System.out.println();
 		
 		// Laevade paigutamine arvuti mängulauale kasutades klassi Paigutus meetodeid)
@@ -31,6 +45,8 @@ public class Mäng {
 
 		Mängulaud.nähtavMängulaud();  //Mängulaua algseisu kuvamine (mängija väljal laevad nähtavad, arvuti omal varjatud)
 		System.out.println();
+//		System.out.println(a);
+//		System.out.println(b);
 		
 		
 		int pihtasKoordinaat = -1;
@@ -40,22 +56,31 @@ public class Mäng {
 			if ( arvutiseis < 20 &&  mängijaseis < 20) { //Kõik laevad ei ole veel põhjas arvutil või mängijal
 			
 				// Mängija pommitab
-				System.out.println();
 				int p1 = KüsiKoordinaat.getKoordinaadid(); //kasutaja sisestab pommitamise asukoha
-				if (Mängulaud.arvutiMängulaud[p1]<2) {
+				System.out.println();
+				if (Mängulaud.arvutiMängulaud[p1]<2) {//if ei pruugi enam vajalik olla 
 					Mängulaud.arvutiMängulaud[p1]+=2;
+					
 				}
-				Mängulaud.nähtavMängulaud();
-				System.out.println();
-				System.out.println("Arvuti käik ...");
-				System.out.println();
-			
-			
+				
+//				for (int i = 0; i < Paigutus.pihtasPõhjas(Mängulaud.arvutiMängulaud, a).size(); i ++) {
+//					Mängulaud.arvutiMängulaud[Paigutus.pihtasPõhjas(Mängulaud.arvutiMängulaud, a).get(i)] = 2;
+//				}
+				
 				// Arvuti pommitab
 				if (pihtasKoordinaat < 0) {  // Kui arvuti pole veel laeva tabanud
 					int p2 = ArvutiKoordinaat.getArvutiPommiKoordinaadid(Mängulaud.mängijaMängulaud); //Arvuti pommitab juhuslikku koordinaati
 					if (p2 > 0) {		 //õnnestub leida juhuslikult sobiv koht
 						Mängulaud.mängijaMängulaud[p2]+=2;
+						mängijaPommitamata.remove(p2);
+						mängijaPommitamataHulk--;
+//						for (int i = 0; i < Paigutus.pihtasPõhjas(Mängulaud.mängijaMängulaud, b).size(); i ++) {
+//							Mängulaud.mängijaMängulaud[Paigutus.pihtasPõhjas(Mängulaud.mängijaMängulaud, b).get(i)] = 2;
+//						}
+
+						Mängulaud.nähtavMängulaud();
+						System.out.println("\nArvuti pommitas koordinaati: " + KüsiKoordinaat.sisendid[p2]);
+
 						if (Mängulaud.mängijaMängulaud[p2]==3) {  // võtab järgmise käigu ajaks teadmiseks, kui sai laevale pihta
 							pihtasKoordinaat = p2;
 						}
@@ -73,12 +98,15 @@ public class Mäng {
 						}*/
 					} else {
 						Mängulaud.mängijaMängulaud[p2]+=2;
+						mängijaPommitamata.remove(p2);
+						mängijaPommitamataHulk--;
+						Mängulaud.nähtavMängulaud();
+						System.out.println("\nArvuti pommitas koordinaati: " + KüsiKoordinaat.sisendid[p2]);
 						if (Mängulaud.mängijaMängulaud[p2]==3) {  // võtab järgmise käigu ajaks teadmiseks, kui sai laevale pihta
 							pihtasKoordinaat = p2;
 						}
 					} 
 				}
-				Mängulaud.nähtavMängulaud();
 				System.out.println();
 			} else {
 				if (arvutiseis == 20) {
@@ -92,7 +120,6 @@ public class Mäng {
 		}
 
 		System.out.println();
-
 	}
 }
 

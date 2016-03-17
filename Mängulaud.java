@@ -5,8 +5,22 @@ public class Mängulaud {
 
 
 	public static void nähtavMängulaud() { // Meetod nähtava mängulaua genereerimiseks: parameetriteks mängulauad, milles väärtused 0 - tühi, 1 - laevaga, 2 - tulistatud,3 - pihtas
-		System.out.println("\tA R V U T I\t\t\tM Ä N G I J A");   // Mängulaua pealkiri
-		System.out.println();
+		int arvutiTabamused = 0;
+		int mängijaTabamused = 0;
+		System.out.println("\tA R V U T I\t\t       M Ä N G I J A");   // Mängulaua pealkiri
+		System.out.print("      Tabamusi: ");
+		for (int i = 0; i < arvutiMängulaud.length; i++){
+			if (arvutiMängulaud[i] == 3){
+				arvutiTabamused++;
+			}
+		}
+		System.out.print(arvutiTabamused + "/20\t\t      Tabamusi: ");
+		for (int i = 0; i < mängijaMängulaud.length; i++){
+			if (mängijaMängulaud[i] == 3){
+				mängijaTabamused++;
+			}
+		}
+		System.out.println(mängijaTabamused + "/20");
 		System.out.println("    A B C D E F G H I J  "+"\t"+"    A B C D E F G H I J  ");
 		int m = 0;
 		for (int i = 1; i < 11; i++) {   // Reahaaval arvuti ja mängija mängulaudade genereerimine
