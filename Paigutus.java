@@ -180,49 +180,49 @@ public class Paigutus {
 			joonistatavMerepiir.addAll(merepiirLaevale(uppunudLaev0));
 		}
 		if (m[l.get(4)] + m[l.get(5)] + m[l.get(6)] == 9){
-			uppunudLaev0.add(l.get(4));
-			uppunudLaev0.add(l.get(5));
-			uppunudLaev0.add(l.get(6));
+			uppunudLaev1.add(l.get(4));
+			uppunudLaev1.add(l.get(5));
+			uppunudLaev1.add(l.get(6));
 			joonistatavMerepiir.addAll(merepiirLaevale(uppunudLaev1));
 		}
 		if (m[l.get(7)] + m[l.get(8)] + m[l.get(9)] == 9){
-			uppunudLaev0.add(l.get(7));
-			uppunudLaev0.add(l.get(8));
-			uppunudLaev0.add(l.get(9));
+			uppunudLaev2.add(l.get(7));
+			uppunudLaev2.add(l.get(8));
+			uppunudLaev2.add(l.get(9));
 			joonistatavMerepiir.addAll(merepiirLaevale(uppunudLaev2));
 		}
 		if (m[l.get(10)] + m[l.get(11)] == 6){
-			uppunudLaev0.add(l.get(10));
-			uppunudLaev0.add(l.get(11));
+			uppunudLaev3.add(l.get(10));
+			uppunudLaev3.add(l.get(11));
 			joonistatavMerepiir.addAll(merepiirLaevale(uppunudLaev3));
 		}
 		if (m[l.get(12)] + m[l.get(13)] == 6){
-			uppunudLaev0.add(l.get(12));
-			uppunudLaev0.add(l.get(13));
+			uppunudLaev4.add(l.get(12));
+			uppunudLaev4.add(l.get(13));
 			joonistatavMerepiir.addAll(merepiirLaevale(uppunudLaev4));
 		}
 		if (m[l.get(14)] + m[l.get(15)] == 6){
-			uppunudLaev0.add(l.get(14));
-			uppunudLaev0.add(l.get(15));
+			uppunudLaev5.add(l.get(14));
+			uppunudLaev5.add(l.get(15));
 			joonistatavMerepiir.addAll(merepiirLaevale(uppunudLaev5));
 		}
 		if (m[l.get(16)] == 3){
-			uppunudLaev0.add(l.get(16));
+			uppunudLaev6.add(l.get(16));
 			joonistatavMerepiir.addAll(merepiirLaevale(uppunudLaev6));
 		}
 		if (m[l.get(17)] == 3){
-			uppunudLaev0.add(l.get(17));
+			uppunudLaev7.add(l.get(17));
 			joonistatavMerepiir.addAll(merepiirLaevale(uppunudLaev7));
 		}
 		if (m[l.get(18)] == 3){
-			uppunudLaev0.add(l.get(18));
+			uppunudLaev8.add(l.get(18));
 			joonistatavMerepiir.addAll(merepiirLaevale(uppunudLaev8));
 		}
 		if (m[l.get(19)] == 3){
-			uppunudLaev0.add(l.get(19));
+			uppunudLaev9.add(l.get(19));
 			joonistatavMerepiir.addAll(merepiirLaevale(uppunudLaev9));
 		}
-		System.out.println(joonistatavMerepiir);
+		//System.out.println(joonistatavMerepiir);
 		return joonistatavMerepiir;
 	}
 	

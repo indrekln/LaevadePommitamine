@@ -21,12 +21,7 @@ public class KüsiKoordinaat {
 		System.out.print("Sisesta koordinaat (kujul e7 või E7): ");
 		String sisend = tulista.next();
 		while (Arrays.asList(sisendid).contains(sisend.toUpperCase()) == false || Mängulaud.arvutiMängulaud[Arrays.asList(sisendid).indexOf(sisend.toUpperCase())] > 1){
-			if (Arrays.asList(sisendid).contains(sisend.toUpperCase()) == false){
-				System.out.println("Vigane sisend!");
-			}
-			if (Mängulaud.arvutiMängulaud[Arrays.asList(sisendid).indexOf(sisend.toUpperCase())] > 1){
-				System.out.println("Seda koordinaati on juba pommitatud!");
-			}
+			System.out.println("Vigane sisend!");
 			System.out.print("Sisesta koordinaat (kujul e7 või E7): ");
 			sisend = tulista.next();
 		}
